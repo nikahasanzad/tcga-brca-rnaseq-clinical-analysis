@@ -1,6 +1,6 @@
 # TCGA BRCA clinical association analysis
 
-Nika Hasanzad | Version 0.1.0-rc3 | Local portfolio release candidate.
+Nika Hasanzad | Version 0.1.0-rc3 | Research portfolio release candidate.
 
 This project asks how bulk Primary Tumor gene expression is associated with age
 at diagnosis and pathological stage in TCGA-BRCA. It uses one curated molecular
@@ -51,5 +51,7 @@ installed and loaded in a separate library using existing frozen dependencies.
 A full clean restoration, remote CI and full-data reproduction remain NOT_TESTED.
 See [restoration evidence](environment/RESTORATION_STATUS.md),
 [remaining requirements](RELEASE_BLOCKERS.md) and [publication instructions](PUBLICATION_INSTRUCTIONS.md).
-This is READY FOR USER-AUTHORIZED PUBLICATION as a qualified research portfolio,
-with the disclosed limits. No repository was created remotely or published.
+This repository contains the v0.1.0-rc3 research portfolio candidate, with the
+limitations disclosed above. It was uploaded to a private GitHub repository after
+the local release assessment. Historical release documents describe the status at
+the time they were written.
