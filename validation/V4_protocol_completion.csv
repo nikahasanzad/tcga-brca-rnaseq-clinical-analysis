@@ -1,0 +1,6 @@
+stage,deliverables_complete,recorded_execution_complete,coverage,gap,record
+V0,True,True,frozen references and protocol,none,ARCHIVE_WORK/V0_validation_readiness_2026-10-26_v01/V0_validation_protocol.md
+V1,True,True,mandatory integrity and object gates pass,25 unimported historical hashes and three independent weight-ID checks are documented limitations,ARCHIVE_WORK/V1_readiness_2026-10-26_v01/V1_READINESS_REPORT.md
+V2,True,True,11 original model paths / 10555 deletion cohorts; supplement reuses 1063 primary Stage cohorts to cover the three non-I contrasts; all six primary Stage contrasts now covered,none in frozen mandatory scope; scientific influence flags retained,ARCHIVE_WORK/V2_stage_contrast_coverage_supplement_2026-10-29_v01/V2_COVERAGE_SUPPLEMENT_REPORT.md
+V3,True,True,"three comparators and 21 addbacks, all primary models; primary Stage six contrasts",individual historical exclusion rationales remain incomplete,ARCHIVE_WORK/V3_QC_sensitivity_2026-10-29_v01/V3_REPORT.md
+V4,True,True,"2120 unique claims; 120 Stage keys supplemented, 2000 records byte-identical; all applicable evidence integrated",none in frozen mandatory scope; scientific and provenance qualifications retained,ARCHIVE_WORK/V4_evidence_integration_amended_2026-10-29_v03/VALIDATION_REPORT.md

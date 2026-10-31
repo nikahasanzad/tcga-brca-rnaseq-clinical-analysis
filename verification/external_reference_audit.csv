@@ -1,0 +1,12 @@
+url,http_status,resolved_url,method,status,detail
+https://citation-file-format.github.io/,200,https://citation-file-format.github.io/,HEAD,PASS,URL responded; not a legal rights grant or full-text scientific audit
+https://creativecommons.org/licenses/by/4.0/,200,https://creativecommons.org/licenses/by/4.0/,HEAD,PASS,URL responded; not a legal rights grant or full-text scientific audit
+https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/,200,https://docs.gdc.cancer.gov/API/Users_Guide/Downloading_Files/,system curl HEAD with certificate validation,PASS,Verified using system trust store; Python-client issuer-chain limitation recorded separately; no TLS bypass
+https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/,200,https://docs.gdc.cancer.gov/API/Users_Guide/Getting_Started/,system curl HEAD with certificate validation,PASS,Verified using system trust store; Python-client issuer-chain limitation recorded separately; no TLS bypass
+https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/,200,https://docs.gdc.cancer.gov/Data_Transfer_Tool/Users_Guide/Data_Download_and_Upload/,system curl HEAD with certificate validation,PASS,Verified using system trust store; Python-client issuer-chain limitation recorded separately; no TLS bypass
+https://doi.org/10.1093/nar/gkv007,403,,publisher request and official Crossref DOI metadata,PASS,DOI/title/authors/year verified in Crossref; publisher HTTP 403 retained as a full-text access limitation
+https://doi.org/10.1186/gb-2010-11-3-r25,200,https://link.springer.com/article/10.1186/gb-2010-11-3-r25,HEAD,PASS,URL responded; not a legal rights grant or full-text scientific audit
+https://doi.org/10.1186/gb-2014-15-2-r29,200,https://link.springer.com/article/10.1186/gb-2014-15-2-r29,HEAD,PASS,URL responded; not a legal rights grant or full-text scientific audit
+https://gdc.cancer.gov/access-data/data-access-policies,200,https://gdc.cancer.gov/access-data/data-access-policies,HEAD,PASS,URL responded; not a legal rights grant or full-text scientific audit
+https://gdc.cancer.gov/access-data/data-access-processes-and-tools,200,https://gdc.cancer.gov/access-data/data-access-processes-and-tools,HEAD,PASS,URL responded; not a legal rights grant or full-text scientific audit
+https://opensource.org/license/mit,200,https://opensource.org/license/mit,HEAD,PASS,URL responded; not a legal rights grant or full-text scientific audit

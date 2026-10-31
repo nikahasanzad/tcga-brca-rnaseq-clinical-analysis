@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "MIT_source": "https://opensource.org/license/mit",
+  "MIT_change": "copyright placeholders replaced by 2026 Nika Hasanzad; complete permission and disclaimer unchanged",
+  "MIT_source_sha256": "c3b1b78bc8bd3ea13aa4bc9778442d16560270afa235006d816e5e88cef24db4",
+  "MIT_release_sha256": "d816c9ddf0ae48d214414bcba579fa59e37d9d9b5836d70de437d4f89ccac939",
+  "CC_BY_4_source": "https://spdx.org/licenses/CC-BY-4.0.txt",
+  "CC_BY_4_source_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+  "CC_BY_4_release_sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+  "approval_basis": "explicit author approval on 2026-10-31",
+  "ownership_boundary": "user authorization and audited lineage; no independent legal-title certification"
+}

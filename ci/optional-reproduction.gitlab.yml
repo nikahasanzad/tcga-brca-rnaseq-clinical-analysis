@@ -1,0 +1,13 @@
+# Optional private-runner template. NOT included by the default offline pipeline.
+stages: [reproduction]
+frozen-reproduction:
+  stage: reproduction
+  tags: [private-tcga]
+  when: manual
+  allow_failure: false
+  script:
+    - test "$TCGA_ALLOW_FROZEN_REPRODUCTION" = "YES"
+    - test -n "$TCGA_INPUT_DIR" && test -n "$TCGA_CACHE_DIR" && test -n "$TCGA_RUNS_DIR"
+    - Rscript --vanilla tools/check_environment.R
+    - Rscript --vanilla run.R --input-dir "$TCGA_INPUT_DIR" --cache-dir "$TCGA_CACHE_DIR" --runs-dir "$TCGA_RUNS_DIR" --run-id "ci-frozen-$CI_JOB_ID" --execute
+# No data or run outputs are uploaded as CI artifacts. Configure only after approval.

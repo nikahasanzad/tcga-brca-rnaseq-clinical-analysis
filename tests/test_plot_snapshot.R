@@ -1,0 +1,18 @@
+args<-commandArgs(trailingOnly=TRUE);stopifnot(length(args)==1)
+source(file.path(args[1],'R/runtime.R'));suppressPackageStartupMessages(library(ggplot2))
+f<-function() {
+ big_private_state<-runif(1000000)
+ group_order <- c("3","2","1")
+ analysis_env<-environment()
+ p<-ggplot(data.frame(x=1:3,y=c(3,1,2)),aes(x,factor(y,levels=group_order)))+geom_point()+scale_x_continuous(labels=function(x)paste0('n=',x))
+ original_bytes<-length(serialize(p,NULL));copy<-pipeline_detach_analysis(p,analysis_env,bindings="group_order")
+ stopifnot(identical(p$plot_env,analysis_env),identical(parent.env(copy$plot_env),baseenv()),identical(copy$plot_env$group_order,group_order))
+ stopifnot(!exists('big_private_state',envir=copy$plot_env,inherits=FALSE))
+ stopifnot(identical(ggplot_build(p)$data,ggplot_build(copy)$data))
+ files<-tempfile(fileext='.rds');on.exit(unlink(files));saveRDS(copy,files);recovered<-readRDS(files)
+ stopifnot(identical(ggplot_build(p)$data,ggplot_build(recovered)$data))
+ sizes<-c(original=original_bytes,detached=file.info(files)$size)
+ stopifnot(sizes['detached']<original_bytes/5)
+ cat('PASS: local state excluded; ordinary readRDS; plot build data preserved; bytes',sizes,'\n')
+}
+set.seed(42);f()

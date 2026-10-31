@@ -1,0 +1,5 @@
+# Included tables
+
+These six existing gene-level or aggregate S9 tables were copied unchanged from frozen v09_final01. They support Figure 8 metrics, the historical Figure 9 selection, coefficient values and column scaling. The ranked shared table contains 418 genes; the heatmap panel contains 30. No participant-level table or new statistical calculation is included. The tables describe baseline outputs and must be read alongside the amended V4 qualifications. See EVIDENCE_INDEX.md in the docs directory and the package copy manifest for exact hashes.
+
+Three additional aggregate/header-only amended V4 tables record classification counts, transition counts and the empty mandatory-gap table. Two other completion/closure tables are excluded because their archived versions embed personal filesystem paths; the copied final validation report provides their substantive completion assessment. They contain no patient-level records. The source report retains its historical category labels; estimable baseline nonsignificance must be distinguished from actual missing evidence.

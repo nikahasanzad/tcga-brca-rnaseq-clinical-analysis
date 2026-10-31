@@ -1,0 +1,153 @@
+file,scope,basis
+.gitignore,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+.gitlab-ci.yml,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+CHANGELOG.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+CITATION.cff,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+CITATION.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+FILE_INVENTORY.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+FINAL_RELEASE_ACCEPTANCE.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+LICENSE,STANDARD_LEGAL_TEXT,no new project rights asserted over third-party/data content
+LICENSE_SCOPE.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+LICENSE_STATUS.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+LICENSING_SCOPE.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+PUBLICATION_CHECKLIST.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+PUBLICATION_GUIDE.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+PUBLICATION_INSTRUCTIONS.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+R/pipeline.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+R/runtime.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+RC1_TO_RC2_CHANGELOG.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+RC2_TO_RC3_FILE_CHANGES.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+README.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+RELEASE_BLOCKERS.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+RELEASE_NOTES.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+RELEASE_QA_MATRIX.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+SHA256SUMS,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+SOURCE_PROVENANCE_MANIFEST.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+THIRD_PARTY_NOTICES.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+TREE.txt,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+ci/container_metadata.json,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+ci/optional-reproduction.gitlab.yml,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+citation_metadata.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+data-manifests/README.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+data-manifests/gdc_final_manifest.tsv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+data-manifests/gdc_technical_qc_manifest.tsv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+data-manifests/metadata_input_fingerprints.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+docs/DATA_AVAILABILITY.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/DATA_PROVENANCE_AND_SELECTION.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/DECISION_HISTORY_AND_VALIDATION.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/DECISION_LOG.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/EVIDENCE_INDEX.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/EXECUTION.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/FIGURES_AND_INTERPRETATION.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/FIGURE_GALLERY.html,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/FIGURE_GALLERY.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/FIGURE_LEGENDS.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/IDENTIFIERS_AND_DATA_USE.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/INPUT_DATA.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/LOCAL_ONLY.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/METHODS.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/PROTOCOL_CHAPTER_OUTLINE.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/QC_AND_PREPROCESSING.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/REFERENCES.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/RELEASE_CHECKLIST.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/RELEASE_STATUS_NOTE.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/REPRODUCIBILITY_AND_RELEASE.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/RESULTS.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/SOURCE_AND_STATUS.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/STUDY_DESIGN_AND_COHORT.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+docs/VALIDATION_REPORT.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+environment/README.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+environment/RESTORATION_STATUS.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+environment/direct_dependencies.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+environment/packaging_tool.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+environment/pinned_source_availability.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+environment/recorded_environment.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+environment/recorded_packages.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+environment/third_party_package_licenses.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+figures/Figure_01_age_association.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+figures/Figure_02_age_selected_genes.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+figures/Figure_03_age_ranked_effects.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+figures/Figure_04_stage_omnibus.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+figures/Figure_05_stage_selected_genes.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+figures/Figure_06_stage_coefficients.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+figures/Figure_07_primary_categories.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+figures/Figure_08_coefficient_concordance.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+figures/Figure_09_shared_top30.png,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+licenses/CC-BY-4.0.txt,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+licenses/MIT.txt,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+output_contract.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+provenance/EVIDENCE_INDEX.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+provenance/FINAL_MANIFEST_POLICY.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+provenance/README.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+provenance/documentation_corrections.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+renv.lock,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+run.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tables/README.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tables/S9_figure8_stability_metrics.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/S9_figure9_adjusted_coefficients.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/S9_figure9_scaled_coefficients.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/S9_figure9_scaling_factors.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/S9_figure9_top30_genes.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/S9_stable_shared_genes_ranked.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/V4_claim_summary.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/V4_classification_transition_summary.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/V4_coverage_gaps.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/baseline/S9_integrated_master.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/baseline/TCGA_BRCA_age_results_annotated.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/baseline/TCGA_BRCA_joint_age_results.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/baseline/TCGA_BRCA_joint_stage_results.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tables/baseline/TCGA_BRCA_stage_results_annotated.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+tests/README.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tests/contract_tools.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tests/fixtures/scientific_contract.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tests/test_optional_qc.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tests/test_plot_snapshot.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tests/test_public_tables.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tests/test_runtime.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tests/test_structure.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tools/check_environment.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tools/check_integrity.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tools/prepare_archived_cache.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tools/restore_environment.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+tools/run_offline_tests.R,MIT,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+validation/README.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+validation/V4_CLASSIFICATION_RULES.md,CC-BY-4.0,owner-authorized original expression only; exclusions in LICENSING_SCOPE.md
+validation/V4_candidate_status_public.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_claim_evidence_assessment.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_classification_changes.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_cohort_coverage.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_completion_summary.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_coverage_closure.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_prior_adjustment_comparison.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_prior_weighting_comparison.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_protocol_completion.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_unchanged_2000_verification.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/V4_updated_120_verification.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+validation/public_status_projection.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/CACHE_PROVENANCE.txt,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/archive_version_checks.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/authoritative_source_reverification.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/bounded_installation.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/browser_visual_QA.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/citation_and_CI_validation.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/cohort_and_panel_audit.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/dependency_lock_audit.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/download_manifest_audit.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/external_reference_audit.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/figure_file_audit.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/final_browser_QA.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/final_source_preservation.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/final_test_summary.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/frozen_science_preservation.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/historical_reproduction_summary.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/identifier_source_audit.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/license_text_verification.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/limma_bibliography.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/local_link_audit.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/metadata_cache_check.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/public_safety_audit.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/quantitative_claims.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/rc2_source_preservation.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/rc2_test_results.json,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/v09_final01_output_fingerprints.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content
+verification/v09_final02_output_fingerprints.csv,EXCLUDED_NO_NEW_LICENSE,no new project rights asserted over third-party/data content

@@ -1,0 +1,34 @@
+{
+  "stage": "Amended V4",
+  "version": "v03",
+  "completed_UTC": "2026-10-29T08:55:28.932922+00:00",
+  "integration_complete": true,
+  "strict_full_frozen_protocol_complete": true,
+  "outcome": "QUALIFIED",
+  "uncovered_claim_rows": 0,
+  "unique_genes": 40,
+  "historical_panel": 30,
+  "exploratory_panel": 12,
+  "panel_overlap": 2,
+  "unique_candidate_model_test_rows": 2120,
+  "authorized_updated_rows": 120,
+  "other_rows_preserved_exactly": 2000,
+  "unchanged_records_byte_identical": true,
+  "classification_counts": {
+    "supported across the specified checks": 745,
+    "insufficient information / not estimable": 1272,
+    "sensitivity-qualified": 103
+  },
+  "evidence_status_counts": {
+    "ESTIMABLE_BASELINE_SIGNIFICANT": 848,
+    "ESTIMABLE_BASELINE_NOT_SIGNIFICANT": 1272
+  },
+  "new_normalization": false,
+  "new_model_fitting": false,
+  "new_filtering": false,
+  "new_candidate_selection": false,
+  "new_P_or_BH_computation": false,
+  "edgeR_QL": false,
+  "external_validation": false,
+  "GitLab_or_Portfolio_published": false
+}

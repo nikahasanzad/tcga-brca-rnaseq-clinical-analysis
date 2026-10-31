@@ -1,0 +1,19 @@
+{
+  "R": "4.5.1",
+  "platform": "aarch64-apple-darwin20",
+  "recorded_OS": "macOS Tahoe 26.5.2",
+  "source_baseline": "v09_final01",
+  "repeat_evidence": "v09_final02",
+  "direct_packages": {
+    "TCGAbiolinks": "2.38.0",
+    "edgeR": "4.8.2",
+    "limma": "3.66.0",
+    "ggplot2": "4.0.3",
+    "ggrepel": "0.9.8",
+    "scales": "1.4.0"
+  },
+  "specification_type": "observed environment specification; not a resolver lockfile",
+  "fresh_install_verified": false,
+  "target_CI_verified": false,
+  "cross_platform_verified": false
+}

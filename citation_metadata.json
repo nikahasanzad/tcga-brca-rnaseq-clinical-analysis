@@ -1,0 +1,21 @@
+{
+  "title": "TCGA-BRCA clinical association analysis",
+  "version": "0.1.0-rc3",
+  "authors": [
+    {
+      "given_names": "Nika",
+      "family_names": "Hasanzad"
+    }
+  ],
+  "copyright_holder": "Nika Hasanzad",
+  "email": null,
+  "ORCID": null,
+  "repository_url": null,
+  "DOI": null,
+  "license": "MIT",
+  "publication_status": "unpublished local candidate",
+  "scientific_interpretation": "QUALIFIED",
+  "citation_format": "CFF 1.2.0",
+  "documentation_and_original_figures_license": "CC-BY-4.0",
+  "licensing_scope": "LICENSING_SCOPE.md"
+}

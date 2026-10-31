@@ -1,0 +1,22 @@
+{
+  "phase": "3.3",
+  "status": "COMPLETE",
+  "scope": "Historical archived TCGA-BRCA inputs on recorded macOS/R environment",
+  "release": "v09",
+  "runs": [
+    "v09_final01",
+    "v09_final02"
+  ],
+  "checks": {
+    "historical": 94,
+    "repeat": 181,
+    "graphics": 15,
+    "recovery": 3,
+    "protected_originals": 178
+  },
+  "limitations": [
+    "Original GDC API responses unavailable; cache reconstructed from archived GDC metadata exports with UUID joins and provenance.",
+    "Same environment tested; clean installation, another OS, live GDC acquisition and GitLab deployment were not tested."
+  ],
+  "finished_utc": "2026-10-26T05:56:48.867935+00:00"
+}

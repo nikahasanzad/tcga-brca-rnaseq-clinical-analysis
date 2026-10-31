@@ -1,0 +1,13 @@
+{
+  "primary_age_patients": 1072,
+  "primary_stage_patients": 1063,
+  "joint_patients": 1048,
+  "common_universe": 25551,
+  "primary_both": 513,
+  "retained_both": 418,
+  "historical_panel": 30,
+  "exploratory_panel": 12,
+  "overlap": 2,
+  "unique_candidates": 40,
+  "scope": "counts read from frozen archived tables; no new statistical test"
+}

@@ -1,0 +1,12 @@
+{
+  "packages": 103,
+  "all_versions_match_archived_snapshot": true,
+  "R": "4.5.1",
+  "renv_packaging_tool": "1.3.1",
+  "fresh_restore": "NOT_TESTED",
+  "repository_current_versions_differ_from_frozen": true,
+  "restoration_source_availability": "PASS_ENDPOINTS_103",
+  "scientific_packages_installed_or_upgraded": false,
+  "isolated_exact_version_installations": 3,
+  "historical_libraries_modified": false
+}

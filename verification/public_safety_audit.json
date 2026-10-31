@@ -1,0 +1,9 @@
+{
+  "large_or_serialized_objects_in_public_tree": 0,
+  "machine_path_or_secret_pattern_failures": 0,
+  "ignore_cases_checked": 8,
+  "all_private_examples_ignored": true,
+  "fixed_TCGA_labels_assessed_separately": true,
+  "full_private_archive_staged_for_publication": false,
+  "scratch_git_scope": "local-only ignore test; no commit or remote"
+}

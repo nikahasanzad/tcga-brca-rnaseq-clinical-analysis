@@ -1,0 +1,82 @@
+[
+  {
+    "key": "E01",
+    "description": "Executed model and input definitions",
+    "project_relative_path": "work/phase3_3_reproducibility/release_v09/R/pipeline.R",
+    "sha256": "845469a1040f23b243ffd8c8d1e308b3ed9080c0ab23074a4fdfeba8439a8368",
+    "bytes": 219348,
+    "release_path": "R/pipeline.R"
+  },
+  {
+    "key": "E02",
+    "description": "Primary Age full-family results",
+    "project_relative_path": "work/phase3_3_reproducibility/runs/v09_final01/data_processed/age_analysis/TCGA_BRCA_age_results_annotated.csv",
+    "sha256": "46c56d96cceb04f5bc1130bc4831ea1890717a2bc2aa1b4bdb2438fc4bf74efd",
+    "bytes": 5391053,
+    "release_path": "tables/baseline/TCGA_BRCA_age_results_annotated.csv"
+  },
+  {
+    "key": "E03",
+    "description": "Primary Stage full-family results",
+    "project_relative_path": "work/phase3_3_reproducibility/runs/v09_final01/data_processed/stage_analysis/TCGA_BRCA_stage_results_annotated.csv",
+    "sha256": "49048320cc1cb5beeec22447bae36a4bc2357fa05a6fe6349f8572d262979355",
+    "bytes": 5602347,
+    "release_path": "tables/baseline/TCGA_BRCA_stage_results_annotated.csv"
+  },
+  {
+    "key": "E04",
+    "description": "Joint Age full-family results",
+    "project_relative_path": "work/phase3_3_reproducibility/runs/v09_final01/data_processed/joint_analysis/TCGA_BRCA_joint_age_results.csv",
+    "sha256": "e46507bde0f1c6d4f0d2d9a237fdb213025998305b9f7a23e13ed27019e9e4e1",
+    "bytes": 4076744,
+    "release_path": "tables/baseline/TCGA_BRCA_joint_age_results.csv"
+  },
+  {
+    "key": "E05",
+    "description": "Joint Stage full-family results",
+    "project_relative_path": "work/phase3_3_reproducibility/runs/v09_final01/data_processed/joint_analysis/TCGA_BRCA_joint_stage_results.csv",
+    "sha256": "428d374dd470b70bd7ba7cb5b378c0e7dcd5aedbf5fafd6040d7e2c5a1d0f404",
+    "bytes": 4637846,
+    "release_path": "tables/baseline/TCGA_BRCA_joint_stage_results.csv"
+  },
+  {
+    "key": "E06",
+    "description": "Common-universe integrated master",
+    "project_relative_path": "work/phase3_3_reproducibility/runs/v09_final01/data_processed/S9_integrated_results/S9_integrated_master.csv",
+    "sha256": "6992f1cc2e4cd993642639a021245bd0969487984c9ed1402edfe41c5fd03b34",
+    "bytes": 14089733,
+    "release_path": "tables/baseline/S9_integrated_master.csv"
+  },
+  {
+    "key": "E07",
+    "description": "Figure 8 exact metrics",
+    "project_relative_path": "work/phase3_3_reproducibility/runs/v09_final01/data_processed/S9_integrated_results/S9_figure8_stability_metrics.csv",
+    "sha256": "240c7be5cbdc814e72c030395700290074d54a93497cc25b82b61d3e2a571c08",
+    "bytes": 869,
+    "release_path": "tables/S9_figure8_stability_metrics.csv"
+  },
+  {
+    "key": "E08",
+    "description": "Ranked retained shared genes",
+    "project_relative_path": "work/phase3_3_reproducibility/runs/v09_final01/data_processed/S9_integrated_results/S9_stable_shared_genes_ranked.csv",
+    "sha256": "d6fd157bb1bcf5bef3ee413a782ffa02b8f27db6c381da77e75956b515ff0f85",
+    "bytes": 235263,
+    "release_path": "tables/S9_stable_shared_genes_ranked.csv"
+  },
+  {
+    "key": "E09",
+    "description": "Historical Figure 9 panel",
+    "project_relative_path": "work/phase3_3_reproducibility/runs/v09_final01/data_processed/S9_integrated_results/S9_figure9_top30_genes.csv",
+    "sha256": "5db5fe4f71ddbeab83bfd328a01b341ef8e04a3ace22b5c07b674e113671849a",
+    "bytes": 17713,
+    "release_path": "tables/S9_figure9_top30_genes.csv"
+  },
+  {
+    "key": "E10",
+    "description": "Current final evidence integration",
+    "project_relative_path": "work/V4_evidence_integration_amended_2026-10-29_v03/VALIDATION_REPORT.md",
+    "sha256": "a12279abec38e0cade076100413bb54519bffcda27fd920dd7e9310b6e16df94",
+    "bytes": 15682,
+    "release_path": "docs/VALIDATION_REPORT.md"
+  }
+]

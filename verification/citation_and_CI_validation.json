@@ -1,0 +1,14 @@
+{
+  "CITATION_cff": "PASS",
+  "schema": "CFF 1.2.0, official draft-07 schema",
+  "schema_sha256": "0b8d22140da702d766df318dcff3a91af2f39521298dcf36d76315fd99cc169b",
+  "CI_yaml_syntax": "PASS",
+  "CI_fail_closed_structure": "PASS",
+  "optional_real_data_job_separate": true,
+  "container_execution": "NOT_TESTED",
+  "remote_CI_execution": "NOT_TESTED",
+  "validators": {
+    "jsonschema": "4.26.0",
+    "PyYAML": "6.0.3"
+  }
+}

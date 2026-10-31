@@ -1,0 +1,15 @@
+item,status,evidence
+Scoped license activation,PASS,LICENSING_SCOPE.md; LICENSE_SCOPE.csv; LICENSES
+CFF schema and local CI structure,PASS,verification/citation_and_CI_validation.json
+Offline suite and synthetic graphics,PASS,verification/final_test_summary.json
+Pinned endpoints,PASS,environment/pinned_source_availability.csv: 103/103
+Bounded isolated installation,PASS,verification/bounded_installation.json: 3/3; existing dependencies
+Frozen science preservation,PASS,verification/frozen_science_preservation.json
+Public safety and fixtures,PASS,verification/public_safety_audit.json
+Local links,PASS,verification/local_link_audit.json
+Full clean restore,NOT_TESTED,103-package clean restoration not executed
+Remote Runner and container,NOT_TESTED,No remote execution
+Independent/full-data validation,NOT_TESTED,No new analysis; QUALIFIED interpretation
+GitHub Actions if selected,NEEDS_REVISION,GitLab CI provided; GitHub workflow absent
+Historical per-patient QC rationale,NEEDS_REVISION,Six exclusion rationales incomplete; disclosed
+Mandatory publication blockers,PASS,None known within qualified portfolio scope

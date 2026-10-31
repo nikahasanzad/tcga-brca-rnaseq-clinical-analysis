@@ -1,0 +1,10 @@
+args<-commandArgs(trailingOnly=TRUE);stopifnot(length(args)==1)
+source(file.path(args[1],'tests/contract_tools.R'))
+statements<-pipeline_statements(file.path(args[1],'R/pipeline.R'))
+defs<-Filter(function(x)is.call(x)&&identical(x[[1]],as.name('<-'))&&identical(x[[2]],as.name('diagnostic_aggregate')),statements)
+stopifnot(length(defs)==1)
+env<-new.env(parent=globalenv());eval(defs[[1]],env)
+d<-data.frame(metric=c(NA_real_,NA_real_),ffpe=c(TRUE,FALSE));original<-d
+stopifnot(is.null(env$diagnostic_aggregate(metric~ffpe,d,mean)),identical(d,original))
+d$metric<-c(2.1,9.3);stopifnot(identical(env$diagnostic_aggregate(metric~ffpe,d,mean),aggregate(metric~ffpe,d,mean)))
+cat('PASS: entirely missing optional QC summary skipped without mutating data; observed summary matches stats::aggregate\n')

@@ -1,0 +1,25 @@
+{
+  "fixed_unique_labels": 19,
+  "all_matched_archived_open_expression_metadata": true,
+  "archived_discovery_files": 1111,
+  "archived_access_open": 1111,
+  "files": [
+    {
+      "file": "R/pipeline.R",
+      "occurrences": 43,
+      "unique_labels": 19
+    },
+    {
+      "file": "R/runtime.R",
+      "occurrences": 6,
+      "unique_labels": 6
+    },
+    {
+      "file": "tests/fixtures/scientific_contract.R",
+      "occurrences": 17,
+      "unique_labels": 11
+    }
+  ],
+  "assessment": "scoped provenance labels; not direct personal identifiers; no re-identification",
+  "raw_clinical_or_patient_diagnostics_distributed": false
+}

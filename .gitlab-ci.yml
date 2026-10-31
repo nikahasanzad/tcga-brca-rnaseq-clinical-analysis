@@ -1,0 +1,8 @@
+image: rocker/r-ver@sha256:03b023fbf7b1b24ac1bb8b2ac5fd7e15a767e67b40ff50c155e328110981c2aa
+stages: [offline]
+offline-release-checks:
+  stage: offline
+  script:
+    - Rscript --vanilla tools/run_offline_tests.R .
+  allow_failure: false
+  timeout: 10m

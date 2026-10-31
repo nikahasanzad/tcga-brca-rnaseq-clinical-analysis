@@ -1,0 +1,15 @@
+{
+  "offline_suite": "PASS",
+  "synthetic_graphics": "PASS",
+  "installed_version_check": "PASS",
+  "restore_help_guard": "PASS",
+  "tamper_positive_control": "PASS",
+  "tamper_negative_control": "PASS",
+  "CFF_schema": "PASS",
+  "CI_yaml": "PASS",
+  "cache_semantic_equivalence": "PASS",
+  "syntax_and_namespace_smoke": "PASS",
+  "scientific_analysis_executed": false,
+  "fresh_dependency_installation": "NOT_TESTED",
+  "remote_CI": "NOT_TESTED"
+}

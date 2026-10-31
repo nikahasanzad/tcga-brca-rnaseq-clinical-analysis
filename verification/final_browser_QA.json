@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "widths_checked": [
+    1280,
+    390
+  ],
+  "figure_images_loaded_each": 9,
+  "horizontal_overflow": false,
+  "HTTP_requests": "blocked",
+  "journal_print_size": "NOT_TESTED",
+  "screenshots": "retained in local_only"
+}

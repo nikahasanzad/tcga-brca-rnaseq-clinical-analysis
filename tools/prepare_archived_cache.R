@@ -1,0 +1,46 @@
+# Metadata reconstruction only. No count normalization, model fitting or scientific results.
+args <- commandArgs(trailingOnly=TRUE)
+usage <- "Rscript --vanilla tools/prepare_archived_cache.R --input-dir ARCHIVE_EXPORT_ROOT --cache-dir NEW_CACHE_DIR --execute"
+if (!length(args) || "--help" %in% args || !"--execute" %in% args) {cat(usage,"\n");quit(status=0)}
+stopifnot(length(args)==5L,args[1]=="--input-dir",args[3]=="--cache-dir",args[5]=="--execute")
+input <- normalizePath(args[2],mustWork=TRUE)
+cache <- normalizePath(args[4],mustWork=FALSE)
+stopifnot(!file.exists(cache),dir.exists(dirname(cache)))
+stopifnot(dir.create(cache,recursive=FALSE))
+# Reconstruct the two API-shaped inputs from archived GDC exports only.
+# Historical analytical results are deliberately never read here.
+files <- c(file.path(input, 'metadata.repository.2026-08-04 (1).json'), file.path(input, 'gdc_sample_sheet.2026-08-04.tsv'), file.path(input, 'biospecimen.cohort.2026-08-04', paste0(c('sample','portion','analyte','aliquot'), '.tsv')))
+stopifnot(all(file.exists(files)))
+manifest <- data.frame(path=files, bytes=file.info(files)$size, md5=unname(tools::md5sum(files)))
+utils::write.csv(manifest, file.path(cache,'archive_inputs.csv'),row.names=FALSE)
+read_export <- function(p) read.delim(p, check.names=FALSE, na.strings=c("'--",'--',''),stringsAsFactors=FALSE)
+sample <- read_export(files[3]); portion <- read_export(files[4]); analyte <- read_export(files[5]); aliquot <- read_export(files[6])
+stopifnot(!anyDuplicated(sample$samples.sample_id),!anyDuplicated(portion$portions.portion_id),!anyDuplicated(analyte$analytes.analyte_id),!anyDuplicated(aliquot$aliquots.aliquot_id))
+stopifnot(all(portion$samples.sample_id %in% sample$samples.sample_id), all(analyte$portions.portion_id %in% portion$portions.portion_id),all(aliquot$analytes.analyte_id %in% analyte$analytes.analyte_id))
+own <- function(d,prefix) {out <- d[,startsWith(names(d),paste0(prefix,'.')),drop=FALSE]; names(out) <- sub(paste0('^',prefix,'\\.'),'',names(out)); out}
+a <- own(aliquot,'aliquots'); n <- own(analyte,'analytes'); p <- own(portion,'portions'); s <- own(sample,'samples')
+p$is_ffpe <- ifelse(is.na(p$is_ffpe),NA,tolower(as.character(p$is_ffpe))=='true')
+n$aliquots <- lapply(n$analyte_id,function(id) a[aliquot$analytes.analyte_id==id,,drop=FALSE])
+p$analytes <- lapply(p$portion_id,function(id) n[analyte$portions.portion_id==id,,drop=FALSE])
+s$portions <- lapply(s$sample_id,function(id) p[portion$samples.sample_id==id,,drop=FALSE])
+j <- jsonlite::fromJSON(files[1], simplifyVector=FALSE)
+sheet <- read_export(files[2])
+scalar <- function(x,key) if(is.null(x[[key]])) NA_character_ else as.character(x[[key]])
+rows <- lapply(j,function(f) {
+  stopifnot(length(f$associated_entities)==1)
+  e <- f$associated_entities[[1]]
+  ai <- match(e$entity_id,aliquot$aliquots.aliquot_id)
+  stopifnot(!is.na(ai), identical(e$entity_submitter_id,aliquot$aliquots.submitter_id[ai]),identical(e$case_id,aliquot$cases.case_id[ai]))
+  si <- match(aliquot$samples.sample_id[ai],sample$samples.sample_id)
+  pi <- match(aliquot$portions.portion_id[ai],portion$portions.portion_id)
+  hi <- match(f$file_id,sheet[['File ID']])
+  stopifnot(!is.na(hi), identical(f$file_name,sheet[['File Name']][hi]), identical(sample$samples.submitter_id[si],sheet[['Sample ID']][hi]))
+  data.frame(file_id=f$file_id,file_name=f$file_name,cases.submitter_id=aliquot$cases.submitter_id[ai],sample.submitter_id=sample$samples.submitter_id[si],cases=e$entity_submitter_id,file_size=as.numeric(f$file_size),sample_type=sample$samples.sample_type[si],is_ffpe=p$is_ffpe[pi],md5sum=f$md5sum,data_type=f$data_type,analysis_workflow_type=f$analysis$workflow_type,analysis_id=scalar(f$analysis,'analysis_id'),analysis_submitter_id=scalar(f$analysis,'submitter_id'),created_datetime=scalar(f,'created_datetime'),updated_datetime=scalar(f,'updated_datetime'),stringsAsFactors=FALSE)
+})
+x <- do.call(rbind,rows)
+stopifnot(nrow(x)==1111L,!anyDuplicated(x$file_id),all(x$sample_type=='Primary Tumor'))
+request <- list(project='TCGA-BRCA',data.category='Transcriptome Profiling',data.type='Gene Expression Quantification',workflow.type='STAR - Counts',sample.type='Primary Tumor',access='open')
+saveRDS(list(schema_version=1L,request=request,value=list(results=list(x))),file.path(cache,'query_exp.rds'))
+saveRDS(list(schema_version=1L,request=list(project='TCGA-BRCA',type='Biospecimen',save.csv=FALSE),value=s),file.path(cache,'biospecimen_raw.rds'))
+writeLines(c('RECONSTRUCTED ARCHIVED METADATA — NOT ORIGINAL API RESPONSE', 'Source metadata dated 2026-08-04; source hashes: archive_inputs.csv.', 'File attributes from repository JSON; sample/case/aliquot UUIDs joined against biospecimen TSVs and sample sheet.', 'Nested sample -> portion -> analyte -> aliquot frames preserve TSV order.', 'is_ffpe comes from the matching portion, never inferred from preservation_method.', 'Missing file-level created_datetime/updated_datetime are NA, not analysis timestamps; these fields are diagnostic only.', 'No historical analytical output was used to construct these inputs.', paste('query rows:',nrow(x)),paste('biospecimen samples:',nrow(s))), file.path(cache,'PROVENANCE.txt'))
+cat('Prepared archived cache:',nrow(x),'files;',nrow(s),'samples\n')

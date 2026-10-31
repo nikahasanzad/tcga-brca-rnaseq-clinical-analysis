@@ -1,0 +1,7 @@
+package,recorded_version,recorded_built_R,role
+TCGAbiolinks,2.38.0,4.5.2,required_by_audited_code
+edgeR,4.8.2,4.5.2,required_by_audited_code
+limma,3.66.0,4.5.2,required_by_audited_code
+ggplot2,4.0.3,4.5.2,required_by_audited_code
+ggrepel,0.9.8,4.5.2,required_by_audited_code
+scales,1.4.0,4.5.0,required_by_audited_code

@@ -1,0 +1,7 @@
+TCGA-BRCA project: scoped licensing
+Copyright (c) 2026 Nika Hasanzad, for original material owned by the author.
+Original project code: MIT; complete text in LICENSES/MIT.txt.
+Original documentation and figures: CC BY 4.0; complete text in LICENSES/CC-BY-4.0.txt.
+See LICENSING_SCOPE.md and LICENSE_SCOPE.csv for per-file scope and exclusions.
+TCGA/GDC datasets, factual outputs, third-party resources and material not owned
+by the author are excluded from these grants. No rights in those materials are assumed.

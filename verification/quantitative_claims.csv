@@ -1,0 +1,5 @@
+claim,expected_tested,observed_tested,expected_significant,observed_significant,status
+TCGA_BRCA_age_results_annotated.csv,25551,25551,9063,9063,PASS
+TCGA_BRCA_stage_results_annotated.csv,31157,31157,1285,1285,PASS
+TCGA_BRCA_joint_age_results.csv,31285,31285,9413,9413,PASS
+TCGA_BRCA_joint_stage_results.csv,31285,31285,1201,1201,PASS

@@ -1,0 +1,18 @@
+[
+  {
+    "file": "docs/RESULTS.md",
+    "change": "Add the missing E03 Primary Stage reference; preserve every numerical result."
+  },
+  {
+    "file": "docs/DATA_AVAILABILITY.md",
+    "change": "Describe the assembled candidate rather than the former documentation overlay."
+  },
+  {
+    "file": "docs/DATA_AVAILABILITY.md",
+    "change": "Record the code identifier review as an unresolved distribution gate."
+  },
+  {
+    "file": "docs/EVIDENCE_INDEX.md",
+    "change": "Resolve E01-E10 to bundled candidate paths."
+  }
+]

@@ -1,0 +1,9 @@
+RECONSTRUCTED ARCHIVED METADATA — NOT ORIGINAL API RESPONSE
+Source metadata dated 2026-08-04; source hashes: verification/archive_inputs.csv.
+File attributes from repository JSON; sample/case/aliquot UUIDs joined against biospecimen TSVs and sample sheet.
+Nested sample -> portion -> analyte -> aliquot frames preserve TSV order.
+is_ffpe comes from the matching portion, never inferred from preservation_method.
+Missing file-level created_datetime/updated_datetime are NA, not analysis timestamps; these fields are diagnostic only.
+No historical analytical output was used to construct these inputs.
+query rows: 1111
+biospecimen samples: 3388

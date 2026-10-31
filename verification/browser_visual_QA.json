@@ -1,0 +1,95 @@
+{
+  "automated": [
+    {
+      "width": 1280,
+      "images": [
+        {
+          "width": 2700,
+          "height": 2040
+        },
+        {
+          "width": 2700,
+          "height": 2250
+        },
+        {
+          "width": 2550,
+          "height": 2250
+        },
+        {
+          "width": 2700,
+          "height": 2040
+        },
+        {
+          "width": 2700,
+          "height": 2250
+        },
+        {
+          "width": 3000,
+          "height": 2550
+        },
+        {
+          "width": 2700,
+          "height": 2040
+        },
+        {
+          "width": 3000,
+          "height": 2400
+        },
+        {
+          "width": 3000,
+          "height": 2400
+        }
+      ],
+      "scrollWidth": 1280,
+      "viewport": 1280,
+      "status": "PASS"
+    },
+    {
+      "width": 390,
+      "images": [
+        {
+          "width": 2700,
+          "height": 2040
+        },
+        {
+          "width": 2700,
+          "height": 2250
+        },
+        {
+          "width": 2550,
+          "height": 2250
+        },
+        {
+          "width": 2700,
+          "height": 2040
+        },
+        {
+          "width": 2700,
+          "height": 2250
+        },
+        {
+          "width": 3000,
+          "height": 2550
+        },
+        {
+          "width": 2700,
+          "height": 2040
+        },
+        {
+          "width": 3000,
+          "height": 2400
+        },
+        {
+          "width": 3000,
+          "height": 2400
+        }
+      ],
+      "scrollWidth": 390,
+      "viewport": 390,
+      "status": "PASS"
+    }
+  ],
+  "visual_review": "nine-figure overview plus desktop first/last panels and mobile opening inspected",
+  "screenshots": "local_only/qa_logs",
+  "journal_specific_sizing": "NOT_TESTED"
+}

@@ -1,0 +1,7 @@
+{
+  "image": "rocker/r-ver@sha256:03b023fbf7b1b24ac1bb8b2ac5fd7e15a767e67b40ff50c155e328110981c2aa",
+  "tag": "4.5.1",
+  "source_url": "https://hub.docker.com/v2/repositories/rocker/r-ver/tags/4.5.1",
+  "digest_verified": true,
+  "executed_here": false
+}

@@ -1,0 +1,162 @@
+package,version,license
+abind,1.4-8,MIT + file LICENSE
+AnnotationDbi,1.72.0,Artistic-2.0
+askpass,1.2.1,MIT + file LICENSE
+base,4.5.1,Part of R 4.5.1
+base64enc,0.1-6,GPL-2 | GPL-3
+BH,1.90.0-1,BSL-1.0
+Biobase,2.70.0,Artistic-2.0
+BiocFileCache,3.0.0,Artistic-2.0
+BiocGenerics,0.56.0,Artistic-2.0
+BiocManager,1.30.27,Artistic-2.0
+BiocParallel,1.44.0,GPL-2 | GPL-3 | BSL-1.0
+BiocVersion,3.22.0,Artistic-2.0
+biomaRt,2.66.2,Artistic-2.0
+Biostrings,2.78.0,Artistic-2.0
+bit,4.6.0,GPL-2 | GPL-3
+bit64,4.8.6,GPL-2 | GPL-3
+blob,1.3.0,MIT + file LICENSE
+boot,1.3-32,Unlimited
+bsicons,0.1.2,MIT + file LICENSE
+bslib,0.12.0,MIT + file LICENSE
+cachem,1.1.0,MIT + file LICENSE
+cellranger,1.1.0,MIT + file LICENSE
+class,7.3-24,GPL-2 | GPL-3
+cli,3.6.6,MIT + file LICENSE
+clipr,0.8.1,GPL-3
+cluster,2.1.8.3,GPL (>= 2)
+codetools,0.2-20,GPL
+commonmark,2.0.0,BSD_2_clause + file LICENSE
+compiler,4.5.1,Part of R 4.5.1
+cpp11,0.5.5,MIT + file LICENSE
+crayon,1.5.3,MIT + file LICENSE
+curl,8.0.0,MIT + file LICENSE
+data.table,1.18.6.1,MPL-2.0 | file LICENSE
+datasets,4.5.1,Part of R 4.5.1
+DBI,1.3.0,LGPL (>= 2.1)
+dbplyr,2.6.0,MIT + file LICENSE
+DelayedArray,0.36.1,Artistic-2.0
+DESeq2,1.50.2,LGPL (>= 3)
+digest,0.6.39,GPL (>= 2)
+downloader,0.4.1,GPL-2
+dplyr,1.2.1,MIT + file LICENSE
+edgeR,4.8.2,GPL (>=2)
+evaluate,1.0.5,MIT + file LICENSE
+farver,2.1.2,MIT + file LICENSE
+fastmap,1.2.0,MIT + file LICENSE
+filelock,1.0.3,MIT + file LICENSE
+fontawesome,0.5.3,MIT + file LICENSE
+foreign,0.8-91,GPL (>= 2)
+formatR,1.14,GPL
+fs,2.1.0,MIT + file LICENSE
+futile.logger,1.4.9,LGPL-3
+futile.options,1.0.1,LGPL-3
+generics,0.1.4,MIT + file LICENSE
+GenomicRanges,1.62.1,Artistic-2.0
+GEOquery,2.78.0,MIT + file LICENSE
+ggplot2,4.0.3,MIT + file LICENSE
+ggrepel,0.9.8,GPL-3 | file LICENSE
+glue,1.8.1,MIT + file LICENSE
+graphics,4.5.1,Part of R 4.5.1
+grDevices,4.5.1,Part of R 4.5.1
+grid,4.5.1,Part of R 4.5.1
+gtable,0.3.6,MIT + file LICENSE
+highr,0.12,GPL
+hms,1.1.4,MIT + file LICENSE
+htmltools,0.5.9,GPL (>= 2)
+httpuv,1.6.17,GPL (>= 2) | file LICENSE
+httr,1.4.9,MIT + file LICENSE
+httr2,1.3.0,MIT + file LICENSE
+IRanges,2.44.0,Artistic-2.0
+isoband,0.3.0,MIT + file LICENSE
+jquerylib,0.1.4,MIT + file LICENSE
+jsonlite,2.0.0,MIT + file LICENSE
+KEGGREST,1.50.0,Artistic-2.0
+KernSmooth,2.23-27,Unlimited
+knitr,1.51,GPL
+labeling,0.4.3,MIT + file LICENSE | Unlimited
+lambda.r,1.2.4,LGPL-3
+later,1.4.8,MIT + file LICENSE
+lattice,0.23-1,GPL (>= 2)
+lifecycle,1.0.5,MIT + file LICENSE
+limma,3.66.0,GPL (>=2)
+locfit,1.5-9.12,GPL (>= 2)
+magrittr,2.0.5,MIT + file LICENSE
+MASS,7.3-66,GPL-2 | GPL-3
+Matrix,1.7-6,GPL (>= 2) | file LICENCE
+MatrixGenerics,1.22.0,Artistic-2.0
+matrixStats,1.5.0,Artistic-2.0
+memoise,2.0.1,MIT + file LICENSE
+methods,4.5.1,Part of R 4.5.1
+mgcv,1.9-4,GPL (>= 2)
+mime,0.13,GPL
+nlme,3.1-171,GPL (>= 2)
+nnet,7.3-21,GPL-2 | GPL-3
+openssl,2.4.2,MIT + file LICENSE
+otel,0.2.0,MIT + file LICENSE
+parallel,4.5.1,Part of R 4.5.1
+pillar,1.11.1,MIT + file LICENSE
+pkgconfig,2.0.3,MIT + file LICENSE
+plyr,1.8.9,MIT + file LICENSE
+png,0.1-9,GPL-2 | GPL-3
+prettyunits,1.2.0,MIT + file LICENSE
+progress,1.2.3,MIT + file LICENSE
+promises,1.5.0,MIT + file LICENSE
+purrr,1.2.2,MIT + file LICENSE
+R.methodsS3,1.8.2,LGPL (>= 2.1)
+R.oo,1.27.1,LGPL (>= 2.1)
+R.utils,2.13.0,LGPL (>= 2.1)
+R6,2.6.1,MIT + file LICENSE
+rappdirs,0.3.4,MIT + file LICENSE
+RColorBrewer,1.1-3,Apache License 2.0
+Rcpp,1.1.2,GPL (>= 2)
+RcppArmadillo,15.4.2-1,GPL (>= 2)
+readr,2.2.0,MIT + file LICENSE
+readxl,1.5.0,MIT + file LICENSE
+rematch,2.0.0,MIT + file LICENSE
+rentrez,1.2.4,MIT + file LICENSE
+rlang,1.3.0,MIT + file LICENSE
+rpart,4.1.27,GPL-2 | GPL-3
+RSQLite,3.53.3,LGPL (>= 2.1)
+rvest,1.0.5,MIT + file LICENSE
+S4Arrays,1.10.1,Artistic-2.0
+S4Vectors,0.48.1,Artistic-2.0
+S7,0.2.2,MIT + file LICENSE
+sass,0.4.10,MIT + file LICENSE
+scales,1.4.0,MIT + file LICENSE
+selectr,0.6-0,BSD_3_clause + file LICENCE
+Seqinfo,1.0.0,Artistic-2.0
+shiny,1.14.0,MIT + file LICENSE
+snow,0.4-4,GPL
+sourcetools,0.1.7-2,MIT + file LICENSE
+SparseArray,1.10.10,Artistic-2.0
+spatial,7.3-19,GPL-2 | GPL-3
+splines,4.5.1,Part of R 4.5.1
+statmod,1.5.2,GPL-2 | GPL-3
+stats,4.5.1,Part of R 4.5.1
+stats4,4.5.1,Part of R 4.5.1
+stringi,1.8.9,file LICENSE
+stringr,1.6.0,MIT + file LICENSE
+SummarizedExperiment,1.40.0,Artistic-2.0
+survival,3.8-11,LGPL (>= 2)
+sys,3.4.3,MIT + file LICENSE
+TCGAbiolinks,2.38.0,GPL (>= 3)
+TCGAbiolinksGUI.data,1.30.0,GPL-3
+tcltk,4.5.1,Part of R 4.5.1
+tibble,3.3.1,MIT + file LICENSE
+tidyr,1.3.2,MIT + file LICENSE
+tidyselect,1.2.1,MIT + file LICENSE
+tools,4.5.1,Part of R 4.5.1
+tzdb,0.5.0,MIT + file LICENSE
+utf8,1.2.6,Apache License (== 2.0) | file LICENSE
+utils,4.5.1,Part of R 4.5.1
+vctrs,0.7.3,MIT + file LICENSE
+viridisLite,0.4.3,MIT + file LICENSE
+vroom,1.7.1,MIT + file LICENSE
+withr,3.0.3,MIT + file LICENSE
+xfun,0.60,MIT + file LICENSE
+XML,3.99-0.24,BSD_3_clause + file LICENSE
+xml2,1.6.0,MIT + file LICENSE
+xtable,1.8-8,GPL (>= 2)
+XVector,0.50.0,Artistic-2.0
+yaml,2.3.12,BSD_3_clause + file LICENSE

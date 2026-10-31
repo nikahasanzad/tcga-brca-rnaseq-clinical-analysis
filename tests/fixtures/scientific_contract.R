@@ -1,0 +1,485 @@
+list(source_sha256 = "668a672ad4eccd207cd71be44cc3cfbba5bd91d4cff06f1d7953929bb2458894", 
+    assignments = list(fit_age = list(quote(fit_age <- lmFit(voom_age_final, 
+        design_age_final))), fit_age_eb = list(quote(fit_age_eb <- eBayes(fit_age))), 
+        age_results = list(quote(age_results <- topTable(fit_age_eb, 
+            coef = "age_years", number = Inf, adjust.method = "BH", 
+            sort.by = "P"))), fit_stage = list(quote(fit_stage <- lmFit(voom_stage_final, 
+            design_stage_final))), fit_stage_eb = list(quote(fit_stage_eb <- eBayes(fit_stage))), 
+        stage_omnibus = list(quote(stage_omnibus <- topTable(fit_stage_eb, 
+            coef = stage_coef_names, number = Inf, adjust.method = "BH", 
+            sort.by = "F"))), fit_stage_contrasts = list(quote(fit_stage_contrasts <- contrasts.fit(fit_stage, 
+            stage_contrasts))), fit_stage_contrasts_eb = list(
+            quote(fit_stage_contrasts_eb <- eBayes(fit_stage_contrasts))), 
+        fit_joint = list(quote(fit_joint <- lmFit(voom_joint, 
+            design_joint))), fit_joint_eb = list(quote(fit_joint_eb <- eBayes(fit_joint))), 
+        joint_age_results = list(quote(joint_age_results <- topTable(fit_joint_eb, 
+            coef = "age_10y", number = Inf, sort.by = "none"))), 
+        joint_stage_omnibus = list(quote(joint_stage_omnibus <- topTable(fit_joint_eb, 
+            coef = joint_stage_coef_names, number = Inf, sort.by = "none"))), 
+        final_qc_exclusions = list(quote(final_qc_exclusions <- c("TCGA-AC-A2QH", 
+            "TCGA-AC-A3OD", "TCGA-AC-A3QQ", "TCGA-A7-A13G", "TCGA-A7-A26F", 
+            "TCGA-A7-A26I"))), selected_technical_aliquots = list(
+            quote(selected_technical_aliquots <- c("TCGA-A7-A0DB-01A-11R-A00Z-07", 
+                "TCGA-A7-A13D-01A-13R-A12P-07", "TCGA-A7-A13E-01A-11R-A12P-07", 
+                "TCGA-A7-A26E-01A-11R-A169-07", "TCGA-A7-A26J-01A-11R-A169-07"))), 
+        figure9_ranked = list(quote(figure9_ranked <- figure9_candidates[order(figure9_candidates$worst_rank, 
+            figure9_candidates$rank_sum, figure9_candidates$ensembl_gene_id), 
+            , drop = FALSE])), read_star_counts = list(quote(read_star_counts <- function(file) {
+            read.delim(file, skip = 1, check.names = FALSE, stringsAsFactors = FALSE)
+        })), fig_age_volcano = list(quote(fig_age_volcano <- ggplot(age_volcano, 
+            aes(x = beta_age_per_10y, y = neg_log10_FDR)) + geom_point(aes(color = association_class), 
+            alpha = 0.42, size = 1.15) + geom_hline(yintercept = -log10(0.05), 
+            linetype = "dashed", linewidth = 0.5) + geom_vline(xintercept = 0, 
+            linewidth = 0.45) + geom_text_repel(data = age_volcano_labels, 
+            aes(label = gene_name), size = 3.5, fontface = "plain", 
+            box.padding = 0.55, point.padding = 0.35, min.segment.length = 0, 
+            segment.size = 0.3, max.overlaps = Inf, seed = 42, 
+            show.legend = FALSE) + scale_color_manual(values = c(Negative = "#3B6FB6", 
+            `Not significant` = "grey78", Positive = "#D6534D"), 
+            breaks = c("Negative", "Not significant", "Positive")) + 
+            scale_x_continuous(breaks = seq(-0.8, 0.8, by = 0.2), 
+                expand = expansion(mult = c(0.08, 0.1))) + scale_y_continuous(expand = expansion(mult = c(0.02, 
+            0.08))) + coord_cartesian(clip = "off") + labs(title = "Transcriptome-wide association with age at diagnosis", 
+            subtitle = "TCGA-BRCA primary tumors (n = 1,072; 25,551 genes tested)", 
+            x = expression(beta[Age] ~ "per 10 years (voom log"[2] * 
+                "-CPM)"), y = expression(-log[10] * "(BH-FDR)"), 
+            color = NULL, caption = "Dashed line: BH-FDR = 0.05.") + 
+            theme_classic(base_size = 12) + theme(plot.title = element_text(face = "bold", 
+            size = 14, margin = margin(b = 5)), plot.subtitle = element_text(size = 11, 
+            margin = margin(b = 10)), axis.title = element_text(face = "bold"), 
+            legend.position = "top", legend.justification = "left", 
+            legend.margin = margin(t = 0, r = 0, b = 5, l = 0), 
+            legend.box.spacing = unit(2, "pt"), plot.caption = element_text(size = 9, 
+                hjust = 0, margin = margin(t = 8)), plot.margin = margin(t = 12, 
+                r = 25, b = 12, l = 12)))), fig_age_scatter_final = list(
+            quote(fig_age_scatter_final <- ggplot(scatter_data, 
+                aes(x = age_years, y = expression)) + geom_point(alpha = 0.18, 
+                size = 0.8) + geom_smooth(method = "lm", formula = y ~ 
+                x, se = TRUE, linewidth = 0.8) + facet_wrap(~gene_name, 
+                scales = "free_y", ncol = 2) + geom_label(data = scatter_stats, 
+                aes(x = -Inf, y = Inf, label = annotation_short), 
+                inherit.aes = FALSE, hjust = -0.08, vjust = 1.1, 
+                size = 2.7, lineheight = 0.95, linewidth = 0.15, 
+                label.padding = unit(0.1, "lines"), fill = "white", 
+                alpha = 0.78) + labs(title = "Selected gene-expression associations with age at diagnosis", 
+                subtitle = "TCGA-BRCA primary tumors (n = 1,072)", 
+                x = "Age at diagnosis (years)", y = expression("Voom log"[2] * 
+                  "-CPM expression"), caption = paste0("β10y and FDR: primary limma-voom model; ", 
+                  "r: descriptive Pearson correlation; ", "lines and 95% CIs: descriptive ordinary linear trends.")) + 
+                theme_classic(base_size = 12) + theme(plot.title = element_text(face = "bold", 
+                size = 14, margin = margin(b = 5)), plot.subtitle = element_text(size = 11, 
+                margin = margin(b = 10)), axis.title = element_text(face = "bold"), 
+                strip.text = element_text(face = "bold", size = 12), 
+                panel.spacing = unit(1.3, "lines"), plot.caption = element_text(size = 8.3, 
+                  hjust = 0, margin = margin(t = 9)), plot.margin = margin(12, 
+                  22, 12, 12)))), fig_age_effect_ranking_final = list(
+            quote(fig_age_effect_ranking_final <- fig_age_effect_ranking + 
+                labs(title = "Largest estimated age-associated expression effects", 
+                  caption = paste0("Eligible genes: protein-coding and BH-FDR < 0.05; ", 
+                    "top 30 ranked by absolute βAge per 10 years.")))), 
+        stage_overview_plot = list(quote(stage_overview_plot <- ggplot(stage_plot_data, 
+            aes(x = max_abs_stage_effect, y = neg_log10_FDR)) + 
+            geom_point(data = subset(stage_plot_data, association_class == 
+                "Not significant"), color = "grey78", alpha = 0.45, 
+                size = 1.25) + geom_point(data = subset(stage_plot_data, 
+            association_class == "Stage-associated"), color = "#7B4AB5", 
+            alpha = 0.75, size = 1.5) + geom_hline(yintercept = -log10(0.05), 
+            linetype = "dashed", linewidth = 0.45, color = "grey35") + 
+            geom_text_repel(data = stage_label_main, aes(label = gene_name), 
+                size = 3.4, seed = 42, box.padding = 0.4, point.padding = 0.25, 
+                min.segment.length = 0, max.overlaps = Inf) + 
+            geom_text_repel(data = stage_label_rcan3, aes(label = gene_name), 
+                size = 3.4, seed = 42, nudge_x = -0.2, nudge_y = 0.12, 
+                box.padding = 0.4, point.padding = 0.25, min.segment.length = 0, 
+                max.overlaps = Inf) + labs(title = "Transcriptome-wide association with pathological stage", 
+            subtitle = "TCGA-BRCA primary tumors (n = 1,063; 31,157 genes tested)", 
+            x = "Maximum absolute Stage-vs-I coefficient (voom log2-CPM)", 
+            y = expression(-log[10]("BH-FDR")), caption = "Dashed line: BH-FDR = 0.05. Effect magnitude is unsigned.") + 
+            theme_classic(base_size = 12) + theme(plot.title = element_text(face = "bold"), 
+            plot.subtitle = element_text(color = "grey30"), plot.caption = element_text(size = 9, 
+                color = "grey35", hjust = 0), axis.title = element_text(face = "bold"), 
+            plot.margin = margin(10, 20, 10, 10)))), stage_expression_plot = list(
+            quote(stage_expression_plot <- ggplot(stage_expression_long, 
+                aes(x = stage_group, y = expression)) + geom_boxplot(width = 0.58, 
+                outlier.shape = NA, linewidth = 0.45, fill = "grey92") + 
+                geom_jitter(width = 0.16, height = 0, alpha = 0.2, 
+                  size = 0.85) + geom_text(data = stage_selected_labels, 
+                aes(x = -Inf, y = Inf, label = label), inherit.aes = FALSE, 
+                hjust = -0.05, vjust = 1.35, size = 3.1) + facet_wrap(~gene_name, 
+                ncol = 2, scales = "free_y") + labs(title = "Expression of selected Stage-associated genes", 
+                subtitle = "TCGA-BRCA primary tumors (n = 1,063)", 
+                x = "Pathological stage", y = "Voom log2-CPM expression", 
+                caption = paste0("Stage I n = 179; Stage II n = 615; ", 
+                  "Stage III n = 249; Stage IV n = 20.")) + theme_classic(base_size = 12) + 
+                theme(plot.title = element_text(face = "bold"), 
+                  plot.subtitle = element_text(color = "grey30"), 
+                  strip.text = element_text(face = "bold", size = 11), 
+                  axis.title = element_text(face = "bold"), axis.text.x = element_text(angle = 25, 
+                    hjust = 1), plot.caption = element_text(size = 9, 
+                    color = "grey35", hjust = 0), panel.spacing = grid::unit(1.1, 
+                    "lines")))), stage_coefficient_heatmap_final = list(
+            quote(stage_coefficient_heatmap_final <- stage_coefficient_heatmap + 
+                labs(title = "Stage-specific expression patterns", 
+                  subtitle = paste0("Top 30 Stage-associated protein-coding genes\n", 
+                    "ranked by omnibus BH-FDR"), x = NULL, y = NULL, 
+                  caption = paste0("Coefficients represent expression differences relative to Stage I.\n", 
+                    "Color scale capped at ±2.5 for visualization.")) + 
+                theme(plot.title = element_text(face = "bold", 
+                  size = 16), plot.subtitle = element_text(size = 12, 
+                  color = "grey30", lineheight = 1.05), plot.caption = element_text(size = 9, 
+                  color = "grey35", hjust = 0, lineheight = 1.05), 
+                  plot.margin = margin(t = 10, r = 20, b = 10, 
+                    l = 10)))), figure9_plot_refined = list(quote(figure9_plot_refined <- ggplot(figure9_long, 
+            aes(x = comparison_display, y = gene_name, fill = scaled_coefficient)) + 
+            geom_tile(color = "white", linewidth = 0.5) + scale_fill_gradient2(low = "#426C9B", 
+            mid = "#FFFFFF", high = "#B65B68", midpoint = 0, 
+            limits = c(-1, 1), breaks = c(-1, -0.5, 0, 0.5, 1), 
+            name = "Within-contrast\nscaled coefficient") + scale_x_discrete(position = "top", 
+            expand = expansion(add = 0)) + scale_y_discrete(expand = expansion(add = 0)) + 
+            labs(title = "Integrated Age–Stage coefficient patterns", 
+                subtitle = "Top 30 stable shared genes | TCGA-BRCA", 
+                x = NULL, y = NULL, caption = paste0("Adjusted model: Age per 10 years; Stage II, III and IV versus Stage I.\n", 
+                  "Genes ordered by balanced adjusted-FDR ranking; no clustering.\n", 
+                  "Coefficients scaled within each contrast; colors are not comparable across contrasts.")) + 
+            theme_minimal(base_size = 11) + theme(plot.title = element_text(face = "bold", 
+            size = 14, color = "#252A33"), plot.subtitle = element_text(size = 10, 
+            color = "#606873", margin = margin(b = 14)), axis.text.x = element_text(size = 10, 
+            face = "bold", color = "#30343B", margin = margin(b = 8)), 
+            axis.text.y = element_text(size = 9.5, color = "#30343B"), 
+            panel.grid = element_blank(), axis.ticks = element_blank(), 
+            legend.title = element_text(size = 9, face = "bold"), 
+            legend.text = element_text(size = 9), plot.caption = element_text(size = 8, 
+                color = "#69717D", hjust = 0, lineheight = 1.4, 
+                margin = margin(t = 15)), plot.margin = margin(15, 
+                25, 20, 15)))), figure8_plot = list(quote(figure8_plot <- ggplot(figure8_data, 
+            aes(x = primary, y = adjusted)) + geom_abline(slope = 1, 
+            intercept = 0, linetype = "dashed", linewidth = 0.5, 
+            color = "#A0A5AE") + geom_point(color = "#526F9E", 
+            alpha = 0.16, size = 0.45) + facet_wrap(~comparison, 
+            ncol = 2, scales = "free") + coord_equal() + labs(title = "Stability of Age and Stage effect estimates", 
+            subtitle = paste("Primary versus mutually adjusted models |", 
+                "25,551 matched genes per comparison"), x = "Primary model coefficient", 
+            y = "Mutually adjusted model coefficient", caption = paste0("Dashed line indicates equality (y = x). ", 
+                "Age coefficients are per 10 years; Stage coefficients are relative to Stage I.\n", 
+                "Comparisons also reflect changes in cohort and preprocessing. ", 
+                "High concordance does not establish causal independence.")) + 
+            theme_minimal(base_size = 11) + theme(plot.title = element_text(face = "bold", 
+            size = 14, color = "#252A33"), plot.subtitle = element_text(color = "#606873", 
+            margin = margin(b = 12)), strip.text = element_text(face = "bold", 
+            size = 11), panel.grid.minor = element_blank(), plot.caption = element_text(hjust = 0, 
+            size = 8, lineheight = 1.3, margin = margin(t = 12)), 
+            plot.margin = margin(15, 20, 15, 15))), quote(figure8_plot <- figure8_plot + 
+            geom_blank(data = figure8_axis_limits, mapping = aes(x = primary, 
+                y = adjusted), inherit.aes = FALSE) + coord_cartesian()), 
+            quote(figure8_plot <- figure8_plot + geom_text(data = figure8_annotation, 
+                aes(x = -Inf, y = Inf, label = label), inherit.aes = FALSE, 
+                hjust = -0.08, vjust = 1.2, size = 3.1, lineheight = 1.3, 
+                color = "#30343B") + labs(subtitle = "Primary vs mutually adjusted models | 25,551 genes per panel", 
+                caption = paste0("Dashed line: equality (y = x). ", 
+                  "Age coefficients: per 10 years; Stage: relative to Stage I.\n", 
+                  "Models also differ in cohort and preprocessing; ", 
+                  "concordance does not establish causal independence.")) + 
+                theme(plot.subtitle = element_text(size = 10, 
+                  color = "#606873", margin = margin(b = 14)), 
+                  plot.caption = element_text(size = 8, hjust = 0, 
+                    lineheight = 1.35, margin = margin(t = 16)), 
+                  panel.spacing = grid::unit(1.5, "lines"), plot.margin = margin(18, 
+                    25, 20, 18)))), figure8_metrics = list(quote(figure8_metrics <- do.call(rbind, 
+            lapply(names(figure8_split), function(comp) {
+                df <- figure8_split[[comp]]
+                delta <- df$adjusted - df$primary
+                data.frame(comparison = comp, n_genes = nrow(df), 
+                  pearson_r = cor(df$primary, df$adjusted, method = "pearson"), 
+                  spearman_rho = cor(df$primary, df$adjusted, 
+                    method = "spearman"), sign_concordance_pct = 100 * 
+                    mean(sign(df$primary) == sign(df$adjusted)), 
+                  median_abs_delta = median(abs(delta)), p95_abs_delta = as.numeric(quantile(abs(delta), 
+                    0.95)), max_abs_delta = max(abs(delta)))
+            }))), quote(figure8_metrics <- figure8_metrics[order(figure8_metrics$comparison), 
+            ])), age_primary_beta_10y = list(quote(age_primary_beta_10y <- age_primary_matched$beta_age_per_10y)), 
+        age_adjusted_beta_10y = list(quote(age_adjusted_beta_10y <- age_adjusted_matched$logFC)), 
+        age_beta_change = list(quote(age_beta_change <- age_adjusted_beta_10y - 
+            age_primary_beta_10y))), canonical_preprocessing = expression(
+        final_qc_exclusions <- c("TCGA-AC-A2QH", "TCGA-AC-A3OD", 
+            "TCGA-AC-A3QQ", "TCGA-A7-A13G", "TCGA-A7-A26F", "TCGA-A7-A26I"), 
+        stopifnot(is.matrix(raw_count_matrix), is.numeric(raw_count_matrix), 
+            nrow(raw_count_matrix) > 0L, ncol(raw_count_matrix) > 
+                0L, !anyNA(raw_count_matrix), all(is.finite(raw_count_matrix)), 
+            all(raw_count_matrix >= 0), all(raw_count_matrix == 
+                round(raw_count_matrix)), !is.null(rownames(raw_count_matrix)), 
+            !is.null(colnames(raw_count_matrix)), !anyNA(rownames(raw_count_matrix)), 
+            !anyNA(colnames(raw_count_matrix)), all(nzchar(rownames(raw_count_matrix))), 
+            all(nzchar(colnames(raw_count_matrix))), !anyDuplicated(rownames(raw_count_matrix)), 
+            !anyDuplicated(colnames(raw_count_matrix)), is.character(matched_cohort$patient_id), 
+            !anyNA(matched_cohort$patient_id), all(nzchar(matched_cohort$patient_id)), 
+            !anyDuplicated(matched_cohort$patient_id), setequal(colnames(raw_count_matrix), 
+                matched_cohort$patient_id), all(final_qc_exclusions %in% 
+                matched_cohort$patient_id)), matched_cohort_final <- matched_cohort[!matched_cohort$patient_id %in% 
+            final_qc_exclusions, , drop = FALSE], raw_count_matrix_final <- raw_count_matrix[, 
+            matched_cohort_final$patient_id, drop = FALSE], stopifnot(identical(colnames(raw_count_matrix_final), 
+            matched_cohort_final$patient_id), !any(final_qc_exclusions %in% 
+            colnames(raw_count_matrix_final))), age_meta_final <- matched_cohort_final[!is.na(matched_cohort_final$age_years), 
+            , drop = FALSE], stage_meta_final <- matched_cohort_final[!is.na(matched_cohort_final$stage_group), 
+            , drop = FALSE], stage_meta_final$stage_group <- factor(as.character(stage_meta_final$stage_group), 
+            levels = c("Stage I", "Stage II", "Stage III", "Stage IV")), 
+        rownames(age_meta_final) <- age_meta_final$patient_id, 
+        rownames(stage_meta_final) <- stage_meta_final$patient_id, 
+        stopifnot(nrow(age_meta_final) > 2L, nrow(stage_meta_final) > 
+            4L, all(is.finite(age_meta_final$age_years)), !anyNA(stage_meta_final$stage_group)), 
+        raw_count_age_final <- raw_count_matrix_final[, age_meta_final$patient_id, 
+            drop = FALSE], raw_count_stage_final <- raw_count_matrix_final[, 
+            stage_meta_final$patient_id, drop = FALSE], dge_age_final <- DGEList(counts = raw_count_age_final), 
+        dge_stage_final <- DGEList(counts = raw_count_stage_final), 
+        design_age_final <- model.matrix(~age_years, data = age_meta_final), 
+        design_stage_final <- model.matrix(~stage_group, data = stage_meta_final, 
+            contrasts.arg = list(stage_group = contr.treatment(c("Stage I", 
+                "Stage II", "Stage III", "Stage IV"), base = 1L))), 
+        stopifnot(identical(rownames(design_age_final), colnames(raw_count_age_final)), 
+            identical(rownames(design_stage_final), colnames(raw_count_stage_final)), 
+            nrow(design_age_final) == nrow(age_meta_final), nrow(design_stage_final) == 
+                nrow(stage_meta_final), qr(design_age_final)$rank == 
+                ncol(design_age_final), qr(design_stage_final)$rank == 
+                ncol(design_stage_final)), keep_age_final <- filterByExpr(dge_age_final, 
+            design = design_age_final), keep_stage_final <- filterByExpr(dge_stage_final, 
+            design = design_stage_final), stopifnot(any(keep_age_final), 
+            any(keep_stage_final)), dge_age_final_filtered <- dge_age_final[keep_age_final, 
+            , keep.lib.sizes = FALSE], dge_stage_final_filtered <- dge_stage_final[keep_stage_final, 
+            , keep.lib.sizes = FALSE], dge_age_final_norm <- calcNormFactors(dge_age_final_filtered, 
+            method = "TMM"), dge_stage_final_norm <- calcNormFactors(dge_stage_final_filtered, 
+            method = "TMM"), summary(dge_age_final_norm$samples$norm.factors), 
+        summary(dge_stage_final_norm$samples$norm.factors), range(dge_age_final_norm$samples$norm.factors), 
+        range(dge_stage_final_norm$samples$norm.factors), prod(dge_age_final_norm$samples$norm.factors), 
+        prod(dge_stage_final_norm$samples$norm.factors), dge_age_final_norm$samples$effective_lib_size <- dge_age_final_norm$samples$lib.size * 
+            dge_age_final_norm$samples$norm.factors, dge_stage_final_norm$samples$effective_lib_size <- dge_stage_final_norm$samples$lib.size * 
+            dge_stage_final_norm$samples$norm.factors, summary(dge_age_final_norm$samples$effective_lib_size), 
+        summary(dge_stage_final_norm$samples$effective_lib_size), 
+        library(limma), voom_age_final <- voom(dge_age_final_norm, 
+            design = design_age_final, plot = FALSE), voom_stage_final <- voom(dge_stage_final_norm, 
+            design = design_stage_final, plot = FALSE), class(voom_age_final), 
+        class(voom_stage_final), dim(voom_age_final$E), dim(voom_age_final$weights), 
+        dim(voom_stage_final$E), dim(voom_stage_final$weights), 
+        identical(colnames(voom_age_final$E), age_meta_final$patient_id), 
+        identical(colnames(voom_stage_final$E), stage_meta_final$patient_id), 
+        identical(colnames(voom_age_final$weights), age_meta_final$patient_id), 
+        identical(colnames(voom_stage_final$weights), stage_meta_final$patient_id), 
+        summary(as.vector(voom_age_final$weights)), summary(as.vector(voom_stage_final$weights)), 
+        anyNA(voom_age_final$E), anyNA(voom_stage_final$E), anyNA(voom_age_final$weights), 
+        anyNA(voom_stage_final$weights), ncol(voom_age_final$E) == 
+            nrow(design_age_final), ncol(voom_stage_final$E) == 
+            nrow(design_stage_final), identical(dim(voom_age_final$weights), 
+            dim(voom_age_final$E)), identical(dim(voom_stage_final$weights), 
+            dim(voom_stage_final$E)), stopifnot(identical(colnames(voom_age_final$E), 
+            age_meta_final$patient_id), identical(colnames(voom_stage_final$E), 
+            stage_meta_final$patient_id), identical(dim(voom_age_final$E), 
+            dim(voom_age_final$weights)), identical(dim(voom_stage_final$E), 
+            dim(voom_stage_final$weights)), identical(rownames(voom_age_final$E), 
+            rownames(dge_age_final_norm$counts)), identical(rownames(voom_stage_final$E), 
+            rownames(dge_stage_final_norm$counts)), all(is.finite(voom_age_final$E)), 
+            all(is.finite(voom_stage_final$E)), all(is.finite(voom_age_final$weights)), 
+            all(voom_age_final$weights > 0), all(is.finite(voom_stage_final$weights)), 
+            all(voom_stage_final$weights > 0), all(is.finite(dge_age_final_norm$samples$norm.factors)), 
+            all(dge_age_final_norm$samples$norm.factors > 0), 
+            all(is.finite(dge_stage_final_norm$samples$norm.factors)), 
+            all(dge_stage_final_norm$samples$norm.factors > 0))), 
+    canonical_joint = expression(head(age_meta_final$patient_id), 
+        head(stage_meta_final$patient_id), head(colnames(raw_count_matrix_final)), 
+        anyNA(age_meta_final$patient_id), anyNA(stage_meta_final$patient_id), 
+        anyDuplicated(age_meta_final$patient_id), anyDuplicated(stage_meta_final$patient_id), 
+        length(unique(age_meta_final$patient_id)), length(unique(stage_meta_final$patient_id)), 
+        identical(age_meta_final$patient_id, colnames(voom_age_final$E)), 
+        identical(stage_meta_final$patient_id, colnames(voom_stage_final$E)), 
+        all(age_meta_final$patient_id %in% colnames(raw_count_matrix_final)), 
+        all(stage_meta_final$patient_id %in% colnames(raw_count_matrix_final)), 
+        joint_patient_ids <- intersect(age_meta_final$patient_id, 
+            stage_meta_final$patient_id), length(joint_patient_ids), 
+        length(setdiff(age_meta_final$patient_id, stage_meta_final$patient_id)), 
+        length(setdiff(stage_meta_final$patient_id, age_meta_final$patient_id)), 
+        joint_age_meta <- age_meta_final[match(joint_patient_ids, 
+            age_meta_final$patient_id), , drop = FALSE], joint_stage_meta <- stage_meta_final[match(joint_patient_ids, 
+            stage_meta_final$patient_id), , drop = FALSE], identical(joint_age_meta$patient_id, 
+            joint_stage_meta$patient_id), identical(joint_age_meta$patient_id, 
+            joint_patient_ids), anyDuplicated(joint_patient_ids), 
+        all(joint_patient_ids %in% colnames(raw_count_matrix_final)), 
+        length(intersect(joint_patient_ids, colnames(raw_count_matrix_final))), 
+        identical(joint_age_meta$age_years, joint_stage_meta$age_years), 
+        identical(as.character(joint_age_meta$stage_group), as.character(joint_stage_meta$stage_group)), 
+        stopifnot(length(joint_patient_ids) > 5L, !anyNA(joint_patient_ids), 
+            !anyDuplicated(joint_patient_ids), identical(joint_age_meta$patient_id, 
+                joint_patient_ids), identical(joint_stage_meta$patient_id, 
+                joint_patient_ids), identical(joint_age_meta$age_years, 
+                joint_stage_meta$age_years), identical(as.character(joint_age_meta$stage_group), 
+                as.character(joint_stage_meta$stage_group)), 
+            all(joint_patient_ids %in% colnames(raw_count_matrix_final)), 
+            !any(final_qc_exclusions %in% joint_patient_ids), 
+            all(is.finite(joint_age_meta$age_years)), !anyNA(joint_stage_meta$stage_group)), 
+        joint_meta <- joint_age_meta, rownames(joint_meta) <- joint_meta$patient_id, 
+        dim(joint_meta), head(joint_meta[, c("patient_id", "age_years", 
+            "stage_group")]), sum(is.na(joint_meta$age_years)), 
+        sum(is.na(joint_meta$stage_group)), table(joint_meta$stage_group, 
+            useNA = "ifany"), summary(joint_meta$age_years), 
+        joint_meta$age_10y <- joint_meta$age_years/10, summary(joint_meta$age_10y), 
+        all.equal(joint_meta$age_10y * 10, joint_meta$age_years), 
+        joint_meta$stage_group <- factor(as.character(joint_meta$stage_group), 
+            levels = c("Stage I", "Stage II", "Stage III", "Stage IV")), 
+        levels(joint_meta$stage_group), table(joint_meta$stage_group), 
+        design_joint <- model.matrix(~age_10y + stage_group, 
+            data = joint_meta, contrasts.arg = list(stage_group = contr.treatment(c("Stage I", 
+                "Stage II", "Stage III", "Stage IV"), base = 1L))), 
+        stopifnot(identical(rownames(design_joint), joint_meta$patient_id), 
+            nrow(design_joint) == nrow(joint_meta), qr(design_joint)$rank == 
+                ncol(design_joint)), dim(design_joint), colnames(design_joint), 
+        head(design_joint), qr(design_joint)$rank, ncol(design_joint), 
+        qr(design_joint)$rank == ncol(design_joint), identical(rownames(design_joint), 
+            joint_meta$patient_id), all(joint_meta$patient_id %in% 
+            colnames(raw_count_matrix_final)), aggregate(age_years ~ 
+            stage_group, data = joint_meta, FUN = function(x) c(n = length(x), 
+            mean = mean(x), sd = sd(x), median = median(x), min = min(x), 
+            max = max(x))), raw_count_joint <- raw_count_matrix_final[, 
+            joint_meta$patient_id, drop = FALSE], dim(raw_count_joint), 
+        identical(colnames(raw_count_joint), joint_meta$patient_id), 
+        identical(colnames(raw_count_joint), rownames(design_joint)), 
+        anyNA(raw_count_joint), anyDuplicated(colnames(raw_count_joint)), 
+        all(raw_count_joint >= 0), all(raw_count_joint == round(raw_count_joint)), 
+        library(edgeR), library(limma), dge_joint <- DGEList(counts = raw_count_joint), 
+        dim(dge_joint), summary(dge_joint$samples$lib.size), 
+        keep_joint <- filterByExpr(dge_joint, design = design_joint), 
+        table(keep_joint), sum(keep_joint), dge_joint_filtered <- dge_joint[keep_joint, 
+            , keep.lib.sizes = FALSE], dim(dge_joint_filtered), 
+        dge_joint_norm <- calcNormFactors(dge_joint_filtered, 
+            method = "TMM"), summary(dge_joint_norm$samples$norm.factors), 
+        dge_joint_norm$samples, effective_lib_sizes_joint <- dge_joint_norm$samples$lib.size * 
+            dge_joint_norm$samples$norm.factors, summary(effective_lib_sizes_joint), 
+        voom_joint <- voom(dge_joint_norm, design_joint, plot = TRUE), 
+        dim(voom_joint$E), dim(voom_joint$weights), identical(colnames(voom_joint$E), 
+            rownames(design_joint)), identical(rownames(voom_joint$E), 
+            rownames(dge_joint_norm$counts)), anyNA(voom_joint$E), 
+        anyNA(voom_joint$weights), range(voom_joint$weights), 
+        stopifnot(identical(colnames(voom_joint$E), joint_meta$patient_id), 
+            identical(dim(voom_joint$E), dim(voom_joint$weights)), 
+            identical(rownames(voom_joint$E), rownames(dge_joint_norm$counts)), 
+            all(is.finite(voom_joint$E)), all(is.finite(voom_joint$weights)), 
+            all(voom_joint$weights > 0), all(is.finite(dge_joint_norm$samples$norm.factors)), 
+            all(dge_joint_norm$samples$norm.factors > 0))), technical_qc = expression(
+        technical_count_list <- lapply(technical_count_files, 
+            function(file) {
+                dat <- read_star_counts(file)
+                gene_rows <- dat[grepl("^ENSG", dat$gene_id), 
+                  c("gene_id", "unstranded")]
+                gene_rows
+            }), names(technical_count_list) <- basename(technical_count_files), 
+        stopifnot(length(technical_count_list) > 0L, !anyDuplicated(names(technical_count_list)), 
+            all(vapply(technical_count_list, function(x) {
+                is.numeric(x$unstranded) && !anyNA(x$unstranded) && 
+                  all(is.finite(x$unstranded)) && all(x$unstranded >= 
+                  0) && all(x$unstranded == round(x$unstranded)) && 
+                  !anyNA(x$gene_id) && all(nzchar(x$gene_id)) && 
+                  !anyDuplicated(x$gene_id)
+            }, logical(1)))), all_identical_gene_ids <- all(vapply(technical_count_list, 
+            function(x) identical(x$gene_id, technical_count_list[[1]]$gene_id), 
+            logical(1))), stopifnot(all_identical_gene_ids, nrow(technical_count_list[[1]]) > 
+            1L), names(technical_count_list[[1]]), length(technical_count_list[[1]]$gene_id), 
+        length(technical_count_list[[1]]$unstranded), sapply(technical_count_list, 
+            nrow), technical_count_matrix <- do.call(cbind, lapply(technical_count_list, 
+            function(x) x$unstranded)), rownames(technical_count_matrix) <- technical_count_list[[1]]$gene_id, 
+        colnames(technical_count_matrix) <- names(technical_count_list), 
+        dim(technical_count_matrix), class(technical_count_matrix), 
+        length(rownames(technical_count_matrix)), length(colnames(technical_count_matrix)), 
+        anyDuplicated(rownames(technical_count_matrix)), anyDuplicated(colnames(technical_count_matrix)), 
+        anyNA(technical_count_matrix), head(technical_count_matrix[, 
+            1:3]), technical_file_map <- technical_query_results[, 
+            c("file_name", "cases.submitter_id", "cases")], technical_file_map <- technical_file_map[match(colnames(technical_count_matrix), 
+            technical_file_map$file_name), ], technical_file_map, 
+        identical(technical_file_map$file_name, colnames(technical_count_matrix)), 
+        anyNA(technical_file_map$file_name), table(technical_file_map$cases.submitter_id), 
+        log_counts <- log2(technical_count_matrix + 1), technical_patients <- unique(technical_file_map$cases.submitter_id), 
+        stopifnot(identical(technical_file_map$file_name, colnames(technical_count_matrix)), 
+            !anyNA(technical_file_map), !anyDuplicated(technical_file_map$file_name), 
+            all(table(technical_file_map$cases.submitter_id) == 
+                2L)), pairwise_similarity <- do.call(rbind, lapply(technical_patients, 
+            function(patient) {
+                idx <- which(technical_file_map$cases.submitter_id == 
+                  patient)
+                data.frame(patient_id = patient, aliquot_1 = technical_file_map$cases[idx[1]], 
+                  aliquot_2 = technical_file_map$cases[idx[2]], 
+                  pearson_log_counts = cor(log_counts[, idx[1]], 
+                    log_counts[, idx[2]], method = "pearson", 
+                    use = "complete.obs"), spearman_counts = cor(technical_count_matrix[, 
+                    idx[1]], technical_count_matrix[, idx[2]], 
+                    method = "spearman", use = "complete.obs"), 
+                  stringsAsFactors = FALSE)
+            })), pairwise_similarity, pairwise_similarity_expressed <- do.call(rbind, 
+            lapply(technical_patients, function(patient) {
+                idx <- which(technical_file_map$cases.submitter_id == 
+                  patient)
+                c1 <- technical_count_matrix[, idx[1]]
+                c2 <- technical_count_matrix[, idx[2]]
+                keep <- c1 > 0 | c2 > 0
+                data.frame(patient_id = patient, n_genes_compared = sum(keep), 
+                  pearson_expressed = cor(log2(c1[keep] + 1), 
+                    log2(c2[keep] + 1), method = "pearson"), 
+                  spearman_expressed = cor(c1[keep], c2[keep], 
+                    method = "spearman"), stringsAsFactors = FALSE)
+            })), pairwise_similarity_expressed, pairwise_depth_comparison <- do.call(rbind, 
+            lapply(technical_patients, function(patient) {
+                idx <- which(technical_file_map$cases.submitter_id == 
+                  patient)
+                lib1 <- sum(technical_count_matrix[, idx[1]])
+                lib2 <- sum(technical_count_matrix[, idx[2]])
+                data.frame(patient_id = patient, aliquot_1 = technical_file_map$cases[idx[1]], 
+                  aliquot_2 = technical_file_map$cases[idx[2]], 
+                  assigned_counts_1 = lib1, assigned_counts_2 = lib2, 
+                  depth_ratio = max(lib1, lib2)/min(lib1, lib2), 
+                  stringsAsFactors = FALSE)
+            })), pairwise_depth_comparison, technical_cpm <- sweep(technical_count_matrix, 
+            2, colSums(technical_count_matrix), FUN = "/") * 
+            1e+06, log2_cpm <- log2(technical_cpm + 1), dim(technical_cpm), 
+        summary(colSums(technical_cpm)), pairwise_similarity_cpm <- do.call(rbind, 
+            lapply(technical_patients, function(patient) {
+                idx <- which(technical_file_map$cases.submitter_id == 
+                  patient)
+                cpm1 <- technical_cpm[, idx[1]]
+                cpm2 <- technical_cpm[, idx[2]]
+                keep <- cpm1 >= 1 | cpm2 >= 1
+                data.frame(patient_id = patient, aliquot_1 = technical_file_map$cases[idx[1]], 
+                  aliquot_2 = technical_file_map$cases[idx[2]], 
+                  n_genes_compared = sum(keep), pearson_log2_cpm = cor(log2_cpm[keep, 
+                    idx[1]], log2_cpm[keep, idx[2]], method = "pearson"), 
+                  spearman_cpm = cor(cpm1[keep], cpm2[keep], 
+                    method = "spearman"), stringsAsFactors = FALSE)
+            })), pairwise_similarity_cpm, technical_pair_summary <- merge(pairwise_similarity, 
+            pairwise_similarity_expressed, by = "patient_id"), 
+        technical_pair_summary <- merge(technical_pair_summary, 
+            pairwise_depth_comparison[, c("patient_id", "depth_ratio")], 
+            by = "patient_id"), technical_pair_summary <- merge(technical_pair_summary, 
+            pairwise_similarity_cpm[, c("patient_id", "pearson_log2_cpm", 
+                "spearman_cpm")], by = "patient_id"), technical_pair_summary, 
+        technical_pair_summary[, c("patient_id", "pearson_log_counts", 
+            "pearson_expressed", "pearson_log2_cpm", "spearman_counts", 
+            "spearman_expressed", "spearman_cpm", "depth_ratio")], 
+        summary(colSums(technical_cpm)), pairwise_similarity_cpm, 
+        technical_pair_summary[, c("patient_id", "pearson_log_counts", 
+            "pearson_expressed", "pearson_log2_cpm", "spearman_counts", 
+            "spearman_expressed", "spearman_cpm", "depth_ratio")], 
+        technical_expression_qc$total_star_accounted <- technical_expression_qc$assigned_counts + 
+            technical_expression_qc$N_unmapped + technical_expression_qc$N_multimapping + 
+            technical_expression_qc$N_noFeature + technical_expression_qc$N_ambiguous, 
+        technical_expression_qc$gene_assignment_fraction <- technical_expression_qc$assigned_counts/technical_expression_qc$total_star_accounted, 
+        technical_expression_qc$gene_assignment_percent <- technical_expression_qc$gene_assignment_fraction * 
+            100, technical_assignment_qc <- technical_expression_qc[, 
+            c("cases.submitter_id", "cases", "assigned_counts", 
+                "detected_genes", "zero_fraction", "N_unmapped", 
+                "N_multimapping", "N_noFeature", "N_ambiguous", 
+                "gene_assignment_percent")], technical_assignment_qc <- technical_assignment_qc[order(technical_assignment_qc$cases.submitter_id, 
+            technical_assignment_qc$cases), ], technical_assignment_qc), 
+    contrasts = expression(stopifnot(identical(colnames(design_stage_final), 
+        c("(Intercept)", "stage_groupStage II", "stage_groupStage III", 
+            "stage_groupStage IV"))), stage_contrasts <- matrix(c(0, 
+        0, 0, 0, 0, 0, 1, 0, 0, -1, -1, 0, 0, 1, 0, 1, 0, -1, 
+        0, 0, 1, 0, 1, 1), nrow = 4, byrow = TRUE), rownames(stage_contrasts) <- colnames(design_stage_final), 
+        colnames(stage_contrasts) <- c("II_vs_I", "III_vs_I", 
+            "IV_vs_I", "III_vs_II", "IV_vs_II", "IV_vs_III"), 
+        stage_contrasts), requests = list(query_exp = list(project = "TCGA-BRCA", 
+        data.category = "Transcriptome Profiling", data.type = "Gene Expression Quantification", 
+        workflow.type = "STAR - Counts", sample.type = "Primary Tumor", 
+        access = "open"), biospecimen_raw = list(project = "TCGA-BRCA", 
+        type = "Biospecimen", save.csv = FALSE)))

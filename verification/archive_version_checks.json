@@ -1,0 +1,54 @@
+[
+  {
+    "package": "scales",
+    "expected_version": "1.4.0",
+    "archive_version": "1.4.0",
+    "status": "PASS",
+    "method": "complete bounded archive DESCRIPTION"
+  },
+  {
+    "package": "ggrepel",
+    "expected_version": "0.9.8",
+    "archive_version": "0.9.8",
+    "status": "PASS",
+    "method": "complete bounded archive DESCRIPTION"
+  },
+  {
+    "package": "jsonlite",
+    "expected_version": "2.0.0",
+    "archive_version": "2.0.0",
+    "status": "PASS",
+    "method": "complete bounded archive DESCRIPTION"
+  },
+  {
+    "package": "edgeR",
+    "expected_version": "4.8.2",
+    "status": "PASS",
+    "method": "streamed DESCRIPTION within 1 MB compressed budget",
+    "archive_version": "4.8.2",
+    "compressed_bytes_read": 10240
+  },
+  {
+    "package": "ggplot2",
+    "expected_version": "4.0.3",
+    "status": "NOT_TESTED",
+    "method": "streamed DESCRIPTION within 1 MB compressed budget",
+    "detail": "1 MB compressed metadata-read budget reached"
+  },
+  {
+    "package": "limma",
+    "expected_version": "3.66.0",
+    "status": "PASS",
+    "method": "streamed DESCRIPTION within 1 MB compressed budget",
+    "archive_version": "3.66.0",
+    "compressed_bytes_read": 10240
+  },
+  {
+    "package": "TCGAbiolinks",
+    "expected_version": "2.38.0",
+    "status": "PASS",
+    "method": "streamed DESCRIPTION within 1 MB compressed budget",
+    "archive_version": "2.38.0",
+    "compressed_bytes_read": 10240
+  }
+]
