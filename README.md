@@ -1,6 +1,6 @@
 # TCGA BRCA clinical association analysis
 
-Nika Hasanzad | Version 0.1.0-rc3 | Research portfolio release candidate.
+Nika Hasanzad | Version 0.1.0-rc3
 
 This project asks how bulk Primary Tumor gene expression is associated with age
 at diagnosis and pathological stage in TCGA-BRCA. It uses one curated molecular
